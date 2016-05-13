@@ -1,0 +1,87 @@
+<div class="md-padding" flex layout-sm="column" >
+
+	<md-card ng-if="vm.quoteMode=='QuickCreate'">
+        <md-card-header-text></md-card-header-text>
+        <md-card-content>
+        	<div style="border: #ffffff">
+				<ol class="progtrckr hidden-xs" data-progtrckr-steps="5" >
+		    		<li class="progtrckr-done">Capture Initial Details</li>
+		    		<li class="progtrckr-done">Know your customer</li>
+		    		<li class="progtrckr-done">Recommendations</li>
+		    		<li class="progtrckr-todo">Generate quote</li>
+		    		<li class="progtrckr-todo">Generate agreement</li> 
+				</ol>
+			</div>
+		</md-card-content>
+    </md-card>
+
+    <div><h2>{{vm.quoteMode}} Quote</h2></div>
+
+    <md-card>
+		<md-card-content>
+		    <form name="quoteForm">
+		    	<md-tabs md-dynamic-height>
+		            <md-tab>
+		              	<md-tab-label>Offers & Devices</md-tab-label>	
+					  	<md-tab-body>
+					   		<div layout="column">
+								
+							</div>    
+					  	</md-tab-body>
+					</md-tab>
+					<md-tab>
+						<md-tab-label>Discount</md-tab-label>	
+						<md-tab-body>
+							<div layout="column">
+								
+							</div>    
+						</md-tab-body>
+					</md-tab>
+					<md-tab>
+						<md-tab-label>Summary</md-tab-label>	
+						<md-tab-body>
+							<div layout="column">
+								
+							</div>    
+						</md-tab-body>
+					</md-tab>
+					<md-tab>
+						<md-tab-label>Additional Details</md-tab-label>	
+						<md-tab-body>
+							<div layout="column">
+								<md-input-container>
+							        <label>Assigned To Group</label>
+							        <md-select ng-model="vm.quote.assignedGroup" style="width:600">
+							          <md-option  value="Sales 1">Sales 1</md-option>
+							          <md-option  value="Sales 2">Sales 2</md-option>
+							        </md-select>
+							    </md-input-container>
+
+							    <md-input-container>
+							        <label>Assigned To User</label>
+							        <md-select ng-model="vm.quote.assignedUser" style="width:600">
+							          <md-option  value="Exective 1">Exective 1</md-option>
+							          <md-option  value="Exective 2">Exective 2</md-option>
+							        </md-select>
+							    </md-input-container>
+
+							    <md-input-container>
+							        <label>Created By Organization</label>
+							        <md-select ng-model="vm.quote.createdByGroup" style="width:600">
+							          <md-option  value="Third Party">Third Party</md-option>
+							          <md-option  value="XXX">XXX</md-option>
+							        </md-select>
+							    </md-input-container>
+							</div>    
+						</md-tab-body>
+					</md-tab>
+				</md-tabs>
+			</form>  
+		</md-card-content>
+	</md-card>
+	<div layout="row" layout-align="center center">
+		<md-button class="md-raised md-primary" ng-if="(vm.quoteMode=='Create')||(vm.quoteMode=='QuickCreate')" ng-click="vm.createQuote(vm.quote)">Create Quote</md-button>
+		<md-button class="md-raised md-primary" ng-if="vm.quoteMode=='Update'" ng-click="vm.updateQuote(vm.quote)">Update Quote</md-button>
+		<md-button class="md-raised md-primary" ng-if="vm.quoteMode=='Delete'" ng-click="vm.deleteQuote(vm.quote)">Delete Quote</md-button>
+	</div>
+</div>

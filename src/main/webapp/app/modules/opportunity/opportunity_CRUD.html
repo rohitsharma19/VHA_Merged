@@ -1,0 +1,39 @@
+<div flex layout-sm="column">
+		<formly-form model="vm.opportunity" fields="vm.opportunityFields"></formly-form>
+</div>
+
+
+<script type="text/ng-template" id="test.html">
+	<div>
+		<pre ng-repeat="(key,value) in this">$scope.{{key}} = {{ value | json }}</pre>
+	</div>
+	<p>HEMAN</p>
+	<div>
+		<pre ng-repeat="(key,value) in this">vm.{{key}} = {{ value | json }}</pre>
+	</div>
+</script>
+
+<script type="text/ng-template" id="tabset.html">
+	<md-tabs md-dynamic-height>
+		<md-tab ng-repeat="tab in to.tabs">
+			<md-tab-label>
+				{{tab.title}}
+			</md-tab-label>
+			<md-tab-body>
+				<formly-form model="::$parent.model" fields="tab.form.fields"></formly-form>
+			</md-tab-body>
+		</md-tab>
+	</md-tabs>
+</script>
+
+<script type="text/ng-template" id="progressTracker.html">
+	<div style="border: #ffffff">
+		<ol class="progtrckr hidden-xs" data-progtrckr-steps={{to.totalSteps}}>
+			<li ng-repeat="step in to.steps" class=progtrckr-{{step.status}}>{{step.label}}</li>
+		</ol>
+	</div>
+</script>
+
+<script type="text/ng-template" id="button.html">
+	<md-button class={{to.class}} ng-click='clicked(options.templateOptions.method,model)'>{{to.label}}</md-button>
+</script>

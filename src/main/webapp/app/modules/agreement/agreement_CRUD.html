@@ -1,0 +1,44 @@
+<div class="md-padding" flex layout-sm="column" >
+    
+    <md-card ng-if="vm.agreementMode=='QuickCreate'">
+        <md-card-header-text></md-card-header-text>
+        <md-card-content>
+        	<div style="border: #ffffff">
+				<ol class="progtrckr hidden-xs" data-progtrckr-steps="5" >
+		    		<li class="progtrckr-done">Capture Initial Details</li>
+		    		<li class="progtrckr-done">Know your customer</li>
+		    		<li class="progtrckr-done">Recommendations</li>
+		    		<li class="progtrckr-done">Generate quote</li>
+		    		<li class="progtrckr-todo">Generate agreement</li> 
+				</ol>
+			</div>
+		</md-card-content>
+    </md-card>
+
+    <div><h2>{{vm.agreementMode}} Agreement</h2></div>
+
+    <md-card>
+		<md-card-content>
+            <form name="agreementForm">
+            	<md-input-container >
+			        <label class="placeholderColour">Offer Name</label>
+			        <input type="text" ng-model="vm.agreement.offerName" size="190">
+		        </md-input-container>
+		        <md-input-container >
+			        <label class="placeholderColour">List Price</label>
+			        <input type="text" ng-model="vm.agreement.listPrice" size="190">
+		        </md-input-container>
+		        <md-input-container >
+			        <label class="placeholderColour">Quantity</label>
+			        <input type="text" ng-model="vm.agreement.quantity" size="190">
+		        </md-input-container>
+			</form> 
+		</md-card-content>
+	</md-card>	 
+	
+	<div layout="row" layout-align="center center">
+		<md-button class="md-raised md-primary" ng-if=(("vm.agreementMode=='Create'")||("vm.agreementMode=='QuickCreate'")) ng-click="vm.createAgreement(vm.agreement)">Create Agreement</md-button>
+		<md-button class="md-raised md-primary" ng-if="vm.agreementMode=='Update'" ng-click="vm.updateAgreement(vm.agreement)">Update Agreement</md-button>
+		<md-button class="md-raised md-primary" ng-if="vm.agreementMode=='Delete'" ng-click="vm.deleteAgreement(vm.agreement)">Delete Agreement</md-button>
+	</div>
+</div>
